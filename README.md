@@ -15,6 +15,7 @@ A simple Chrome extension to move conversations between LLMs (Claude, ChatGPT, G
 - **Copy Conversation**: Extract and copy conversation to clipboard
 - **Move Conversation**: Transfer conversation directly to another LLM
 - **Smart Formatting**: Preserves conversation structure and context
+- **Stateless**: No data storage, completely privacy-focused
 
 ## Supported LLMs
 
