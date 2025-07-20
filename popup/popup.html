@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reChat AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🔄</span>
+        <h1>reChat AI</h1>
+      </div>
+      <div class="current-llm">
+        <span class="llm-indicator" id="llmIndicator">?</span>
+        <span class="llm-name" id="llmName">Detecting...</span>
+      </div>
+    </header>
+
+    <!-- Main Actions -->
+    <main class="main-content">
+      <div class="action-section">
+        <!-- Copy Conversation Button -->
+        <button class="action-btn primary" id="copyConversationBtn">
+          <span class="btn-icon">📋</span>
+          <div class="btn-content">
+            <span class="btn-title">Copy Conversation</span>
+            <span class="btn-subtitle">Copy to clipboard</span>
+          </div>
+        </button>
+
+        <!-- Move Conversation Section -->
+        <div class="move-section">
+          <button class="action-btn secondary" id="moveConversationBtn">
+            <span class="btn-icon">🚀</span>
+            <div class="btn-content">
+              <span class="btn-title">Move to Another LLM</span>
+              <span class="btn-subtitle">Transfer conversation</span>
+            </div>
+            <span class="btn-arrow">▼</span>
+          </button>
+          
+          <!-- LLM Selection Dropdown -->
+          <div class="llm-dropdown" id="llmDropdown">
+            <div class="llm-option" data-llm="Claude">
+              <span class="llm-icon claude">CL</span>
+              <span class="llm-label">Claude</span>
+            </div>
+            <div class="llm-option" data-llm="ChatGPT">
+              <span class="llm-icon chatgpt">GP</span>
+              <span class="llm-label">ChatGPT</span>
+            </div>
+            <div class="llm-option" data-llm="Gemini">
+              <span class="llm-icon gemini">GM</span>
+              <span class="llm-label">Gemini</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Processing...</div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="notification-toast" id="notificationToast">
+    <span class="toast-icon" id="toastIcon">✅</span>
+    <span class="toast-message" id="toastMessage">Success!</span>
+  </div>
+
+  <!-- Load scripts -->
+  <script src="../utils/constants.js"></script>
+  <script src="../utils/formatter.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

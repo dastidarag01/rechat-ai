@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "reChat AI",
+  "version": "1.0.0",
+  "description": "Move conversations between LLMs (Claude, ChatGPT, Gemini) with intelligent formatting and context preservation.",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://bard.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["utils/constants.js", "utils/formatter.js", "content-scripts/claude.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["utils/constants.js", "utils/formatter.js", "content-scripts/chatgpt.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://gemini.google.com/*", "https://bard.google.com/*"],
+      "js": ["utils/constants.js", "utils/formatter.js", "content-scripts/gemini.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "reChat AI - Move conversations between LLMs",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
